@@ -1,7 +1,11 @@
 "use client";
+import { Button } from "@/components/ui/button";
 import { TypewriterEffectSmooth } from "@/components/ui/TypewriterEffect";
+import { SignInButton, useUser } from "@clerk/nextjs";
 
 function Hero() {
+  const { user, isSignedIn } = useUser();
+
   const words = [
     {
       text: "Transform",
@@ -32,12 +36,15 @@ function Hero() {
       </p>
       <TypewriterEffectSmooth words={words} />
       <div className="mt-8 flex flex-wrap justify-center">
-        <a
+        {isSignedIn ? <a
           className="block w-full rounded bg-primary px-12 py-3 text-sm font-medium text-white shadow hover:bg-green-800 focus:outline-none focus:ring active:bg-green-500 sm:w-auto"
           href="/dashboard"
-        >
-          Create AI Form
-        </a>
+        >Create AI Form</a> :       <SignInButton>
+        <Button>Create AI Form</Button>
+      </SignInButton> }
+        
+    
+       
       </div>
       <div className="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-4"></div>
     </div>
