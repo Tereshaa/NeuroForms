@@ -28,6 +28,7 @@ function EditForm({ params }) {
   useEffect(() => {
     user && GetFormData();
   }, [user])
+
   const GetFormData = async () => {
     const result = await db.select().from(JsonForms)
       .where(and(eq(JsonForms.id, params?.formId),
@@ -39,9 +40,6 @@ function EditForm({ params }) {
     setSelectedBackground(result[0].background)
     setSelectedTheme(result[0].theme)
     setSelectedStyle(JSON.parse(result[0].style))
-
-
-
   }
 
   useEffect(() => {
@@ -52,10 +50,10 @@ function EditForm({ params }) {
   }, [updateTrigger])
 
   const onFieldUpdate = (value, index) => {
-    jsonForm.fields[index].label = value.label;
-    jsonForm.fields[index].placeholder = value.placeholder;
-    setUpdateTrigger(Date.now())
-  }
+    jsonForm.formFields[index].formLabel = value.formLabel;
+    jsonForm.formFields[index].placeholderName = value.placeholderName;
+    setUpdateTrigger(Date.now());
+  };
 
   const updateJsonFormInDb = async () => {
     const result = await db.update(JsonForms)
@@ -70,9 +68,8 @@ function EditForm({ params }) {
   }
 
   const deleteField = (indexToRemove) => {
-    const result = jsonForm.fields.filter((item, index) => index != indexToRemove)
-
-    jsonForm.fields = result;
+    const result = jsonForm.formFields.filter((item, index) => index != indexToRemove)
+    jsonForm.formFields = result;
     setUpdateTrigger(Date.now())
   }
 

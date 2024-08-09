@@ -45,7 +45,7 @@ function FieldEdit({ defaultValue, onUpdate , deleteField}) {
             <label className="text-xs">Label Name</label>
             <Input
               type="text"
-              value={label}
+              defaultValue={label}
               onChange={(e) => setLabel(e.target.value)}
             />
           </div>
@@ -53,7 +53,7 @@ function FieldEdit({ defaultValue, onUpdate , deleteField}) {
             <label className="text-xs">Placeholder</label>
             <Input
               type="text"
-              value={placeholder}
+              defaultValue={placeholder}
               onChange={(e) => setPlaceholder(e.target.value)}
             />
           </div>

@@ -17,16 +17,8 @@ import moment from "moment";
 import { useToast } from "@/components/ui/use-toast";
 import { SignInButton, useUser } from "@clerk/nextjs";
 
-function FormUi({
-  jsonForm,
-  selectedTheme,
-  selectedStyle,
-  OnFieldUpdate,
-  deleteField,
-  editable = true,
-  formId = 0,
-  enabledSignIn = false,
-}) {
+function FormUi({jsonForm,selectedTheme,selectedStyle,onFieldUpdate,deleteField,editable = true,formId = 0,enabledSignIn = false,})
+ {
   const { user } = useUser();
   const { toast } = useToast();
   const [formData, setFormData] = useState();
@@ -179,7 +171,7 @@ function FormUi({
             <div>
               <FieldEdit
                 defaultValue={field}
-                onUpdate={(value) => OnFieldUpdate(value, index)}
+                onUpdate={(value) => onFieldUpdate(value, index)}
                 deleteField={() => deleteField(index)}
               />
             </div>
