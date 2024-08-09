@@ -2,6 +2,12 @@
 
 Welcome to NeuroForms, an innovative SaaS application designed to simplify the process of form creation through the power of AI. NeuroForms combines the flexibility of React and Next.js with the style of TailwindCSS, and uses the Gemini API to create dynamic, intelligent forms tailored to your needs.
 
+
+https://github.com/user-attachments/assets/7a826770-ae15-4acf-8baa-0850a055f71d
+
+
+
+
 ## 🚀 Features
 
 - **AI-Driven Form Generation**: Generate intelligent forms using Google Gemini API.
