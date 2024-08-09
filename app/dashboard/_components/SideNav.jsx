@@ -25,12 +25,6 @@ function SideNav() {
         },
         {
           id: 1,
-          name: "Analytics",
-          icon: BarChart,
-          path: "/dashboard/analytics",
-        },
-        {
-          id: 1,
           name: "Upgrade",
           icon: Gem,
           path: "/dashboard/upgrade",
